@@ -1,15 +1,21 @@
 // Start This file from starting point..
 
 const express = require("express");
-const app = express();
 const serverConfig = require("./configs/server.config")
 const dbConfig = require("./configs/db.config");
+const mongoose = require("mongoose");
+const app = express();
 
 
+// object and json converter like middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
-
-
+// Database connected
+mongoose.connect(dbConfig.DB_URL, () => {
+    console.log("MongoDB connected")
+})
 
 
 // here is express server started
