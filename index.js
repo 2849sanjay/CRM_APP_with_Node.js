@@ -17,6 +17,8 @@ mongoose.connect(dbConfig.DB_URL, () => {
     console.log("MongoDB connected")
 })
 
+// here is import router
+require("./routes/user.route")(app);
 
 // here is express server started
 app.listen(serverConfig.PORT, () => {
