@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const constants = require("../utills/constants");
+// wrong typo folder name utils not utills but This time not can change
+const constants = require("../utills/constants")
 
 
 const userSchema = new mongoose.Schema({
@@ -36,7 +37,7 @@ const userSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        immutable,
+        immutable: true,
         default: () => {
             return Date.now();
         }
@@ -47,8 +48,8 @@ const userSchema = new mongoose.Schema({
             return Date.now()
         }
     }
-
-
-
-
 })
+module.exports = mongoose.model("User", userSchema);
+
+
+
